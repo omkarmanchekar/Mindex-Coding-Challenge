@@ -1,7 +1,6 @@
 package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.dao.EmployeeRepository;
-// import com.mindex.challenge.dao.ReportingRepository;
 import com.mindex.challenge.data.ReportingStructure;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.ReportingService;
@@ -62,7 +61,7 @@ public class ReportingServiceImlp implements ReportingService{
 
         }
 
-        
+
         // Total distinct reports will be the number of employee visited -1, (-1) will remove the source employee 
         int total_directed_reports = visited.size()-1;
 
