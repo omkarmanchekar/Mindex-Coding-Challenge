@@ -16,21 +16,21 @@ public class EmployeeController {
 
     @PostMapping("/employee")
     public Employee create(@RequestBody Employee employee) {
-        LOG.debug("Received employee create request for [{}]", employee);
+        LOG.debug("Received employee create request at controller for [{}]", employee);
 
         return employeeService.create(employee);
     }
 
     @GetMapping("/employee/{id}")
     public Employee read(@PathVariable String id) {
-        LOG.debug("Received employee create request for id [{}]", id);
+        LOG.debug("Received employee create request at controller for id [{}]", id);
 
         return employeeService.read(id);
     }
 
     @PutMapping("/employee/{id}")
     public Employee update(@PathVariable String id, @RequestBody Employee employee) {
-        LOG.debug("Received employee create request for id [{}] and employee [{}]", id, employee);
+        LOG.debug("Received employee create request at controller for id [{}] and employee [{}]", id, employee);
 
         employee.setEmployeeId(id);
         return employeeService.update(employee);
