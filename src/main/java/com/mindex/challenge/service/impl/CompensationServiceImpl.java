@@ -40,17 +40,17 @@ public class CompensationServiceImpl implements CompensationService{
         return compensation;
     }
 
-    // POST body will be in the following structure :
-    // {
-    //     "employee": {"firstName" : "Omkar",
-    //                  "lastName" : "Manchekar",
-    //                  "position" : "Developer II",
-    //                  "department" : "Engineering"},
-    //     "salary":1000,
-    //     "effectiveDate":"2022-10-01"
-    // }
-
-
+    /**
+     *     POST body will be in the following structure :
+            {
+                "employee": {"firstName" : "Omkar",
+                            "lastName" : "Manchekar",
+                            "position" : "Developer II",
+                            "department" : "Engineering"},
+                "salary":1000,
+                "effectiveDate":"2022-10-01"
+            }
+     */
     @Override
     public Compensation read(String id) {
         LOG.debug("Creating request to read compensation with id [{}]", id);
@@ -69,7 +69,6 @@ public class CompensationServiceImpl implements CompensationService{
                 return compensation;
             }
         }
-
         
         // Will return null compensation if no compensation.employeeId is found in database
         Compensation null_compensation = new Compensation();
