@@ -17,11 +17,11 @@ public class CompensationController {
     @Autowired
     private CompensationService compensationService;
 
-    @PostMapping("/compensation")
-    public Compensation create(@RequestBody Compensation compensation) {
+    @PostMapping("/compensation/{id}")
+    public Compensation create(@PathVariable String id, @RequestBody Compensation compensation) {
         LOG.debug("Received compensation create at controller request for [{}]", compensation);
 
-        return compensationService.create(compensation);
+        return compensationService.create(id,compensation);
     }
 
     @GetMapping("/compensation/{id}")

@@ -36,28 +36,34 @@ public class CompensationServiceImplTest {
 
     @Before
     public void setup() {
-        compensationCreateUrl = "http://localhost:" + port + "/compensation";
+        compensationCreateUrl = "http://localhost:" + port + "/compensation/{id}";
         compensationReadUrl = "http://localhost:" + port + "/compensation/{id}";
     }
 
     @Test
     public void testCreateRead() {
         Employee testEmployee = new Employee();
-        testEmployee.setFirstName("John");
-        testEmployee.setLastName("Doe");
-        testEmployee.setDepartment("Engineering");
-        testEmployee.setPosition("Developer");
-        Compensation testCompensation = new Compensation();
-        testCompensation.setSalary(2000);
-        testCompensation.setEmployee(testEmployee);
-
         
+        testEmployee.setEmployeeId("16a596ae-edd3-4847-99fe-c4518e82c86f");
+        testEmployee.setFirstName("John");
+        testEmployee.setLastName("Lennon");
+        testEmployee.setDepartment("Engineering");
+        testEmployee.setPosition("Development Manager");
+
+
+        Compensation testCompensation = new Compensation();
+        testCompensation.setSalary(2000);        
         testCompensation.setEffectiveDate(Calendar.getInstance().getTime());
+
+        Compensation resultCompensation = new Compensation();
+        resultCompensation.setSalary(testCompensation.getSalary());
+        resultCompensation.setEffectiveDate(testCompensation.getEffectiveDate());
+        resultCompensation.setEmployee(testEmployee);
     
         // Create Compensation
-        Compensation createdCompensation = restTemplate.postForEntity(compensationCreateUrl, testCompensation, Compensation.class).getBody();
+        Compensation createdCompensation = restTemplate.postForEntity(compensationCreateUrl, testCompensation, Compensation.class,testEmployee.getEmployeeId()).getBody();
         assertNotNull(createdCompensation.getEmployee().getEmployeeId());
-        assertCompensationEquivalence(testCompensation,createdCompensation);
+        assertCompensationEquivalence(resultCompensation,createdCompensation);
 
         // Read Compensation
         Compensation readCompensation = restTemplate.getForEntity(compensationReadUrl, Compensation.class, createdCompensation.getEmployee().getEmployeeId()).getBody();

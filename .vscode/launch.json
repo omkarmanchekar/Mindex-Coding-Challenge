@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ChallengeApplication<mindex-java-code-challenge-new>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mindex.challenge.ChallengeApplication",
+            "projectName": "mindex-java-code-challenge-new",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ChallengeApplication<mindex-java-code-challenge-new latest interview>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mindex.challenge.ChallengeApplication",
+            "projectName": "mindex-java-code-challenge-new latest interview",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ChallengeApplication<mindex-java-code-challenge-new-latest-interview>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mindex.challenge.ChallengeApplication",
+            "projectName": "mindex-java-code-challenge-new-latest-interview",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
